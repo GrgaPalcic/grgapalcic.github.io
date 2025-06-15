@@ -4,7 +4,7 @@ date: 2025-06-14
 author: grga
 categories: [rust, bare-metal]
 tags: [wsl, rust, aarch64]
-description: 
+description: Look for the bare necessities, the simple bare necessities
 ---
 
 ## In WSL, Ubuntu 22.04
