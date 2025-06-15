@@ -1,5 +1,5 @@
 ---
-title: BRIEF device tree structure
+title: Brief device tree structure
 date: 2025-06-15
 author: grga
 categories: [raspberry-pi, bare-metal]
@@ -7,13 +7,13 @@ tags: [rpi, aarch64, dtb]
 description: This one was confusing at first but ultimately very interesting to learn about.
 ---
 
-Device Tree blob is flat binary (big-endian) encoding of device tree data. There is a lot of things in there, here is only what i need for now:
+Device Tree blob is flat binary (big-endian) encoding of device tree data. There is a lot of things in there, but for now i only need this:
 
 
 First, ``address-cells`` and ``size-cells`` are contained in the root node, and they represent encoding of ``reg`` properties of it's child nodes. Former defines number of u32 cells (32 bit values) needed to form the base address part, and later the size part. If child node contains ``address-cells`` and ``size-cells`` they will overwrite parent ones for that node.
 
 
-eg.
+e.g.
 ```
 Node:
     #address-cells: 00 00 00 01 
@@ -30,7 +30,7 @@ However, nodes containing ``ranges`` property, such as ``soc``, means peripheral
 ``ranges = < child_address parent_address size> * N``
 
 
-eg.
+e.g.
 ```
 soc {
         compatible = "simple-bus";
@@ -59,6 +59,6 @@ phy_addr = parent_address + (device_address - child_address)
 > It's important to note that range covers adresses ``[start, start+size-1]`` because range ends on the last byte of the mapped region, and not on the next unmapped byte.
 {: .prompt-info}
 
-Sources:
-https://devicetree-specification.readthedocs.io/en/stable/devicetree-basics.html
-https://docs.kernel.org/devicetree/usage-model.html
+## Sources:
+- https://devicetree-specification.readthedocs.io/en/stable/devicetree-basics.html
+- https://docs.kernel.org/devicetree/usage-model.html
