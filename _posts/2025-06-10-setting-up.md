@@ -30,8 +30,10 @@ install cargo-binutils (objdump, objcopy, etc.) to create final kernel8.img file
 ```shell
 cargo install cargo-binutils
 rustup component add llvm-tools-preview
+```  
 
 create new binary project:
+```shell
 cargo new --bin rpi-rust-os
 ```
 
